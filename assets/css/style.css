@@ -1,0 +1,131 @@
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: #201658;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.area {
+    width: 700px;
+    height: 850px;
+    background-color: #1D24CA;
+    border-radius: 30px;
+}
+
+.area h1 {
+    text-align: center;
+    font-size: 37px;
+}
+
+.area p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.area-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.area-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+.area-form form label {
+    font-size: 20px;
+}
+
+.disciplina {
+    width: 200px;
+    outline: none;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.area-form form .notas {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 20px;
+    text-align: center;
+    outline: none;
+}
+
+.button {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 25px;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    background-color: aqua;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.button-red {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 25px;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: crimson;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.button-red:hover {
+    opacity: 0.8;
+}
+
+.resultado {
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.resultado .media {
+    font-size: 20px;
+    text-align: center;
+}
+
+.resultado .situation {
+    font-size: 20px;
+    text-align: center;
+}
+
+.resultado .faltando {
+    font-size: 20px;
+    text-align: center;
+}
+
+.resultado .materia {
+    font-size: 20px;
+    text-align: center;
+}

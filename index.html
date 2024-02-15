@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Calculadora de Notas</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="area">
+            <h1>Calculadora de Notas</h1>
+            <p>Uma calculadora para você calcular suas notas de um periodo somente, digite as 3 notas e a caculadora fornecerá o resultado se você ja estiver aprovado ou de recuperação no periodo, caso estiver faltando notas de alguma Prova, digite 0, e a calculadora mostrará quantos pontos falta para você passar, ou então quanto você precisa tirar na prova para</p>
+           <div class="area-form">
+            <form action="">
+                <label for="disciplina">Escreva a disciplina</label>
+                <input class="disciplina" type="text" name="disciplina" id="disciplina">
+
+                <label for="Av1">Digite a nota da Av1 (Digite 0 se não houver)</label>
+                <input class="notas av1" type="number" name="av1" max="10" min="0" id="av1">
+
+                <label for="Av2">Digite a nota da Av2 (Digite 0 se não houver)</label>
+                <input class="notas av2" type="number" name="av2" max="10" min="0" id="av2">
+
+                <label for="Av3">Digite a nota da Av3 (Digite 0 se não houver)</label>
+                <input class="notas av3" type="number" name="av3" max="10" min="0" id="av3">
+                
+
+                <div class="resultado">
+                    <p class="materia"></p>
+                    <p class="media"></p>
+                    <p class="situation"></p>
+                    <p class="faltando"></p>
+                </div>
+
+                <div class="buttons">
+                    <button class="button">Calcular</button>
+                    <button class="button-red">Limpar</button>
+                </div>
+                
+            </form>
+           </div> 
+        </div>
+        
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
