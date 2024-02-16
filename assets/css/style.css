@@ -4,6 +4,7 @@ body {
     margin: 0;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
 .container {
@@ -18,7 +19,7 @@ body {
 
 .area {
     width: 700px;
-    height: 850px;
+    height: 720px;
     background-color: #1D24CA;
     border-radius: 30px;
 }
@@ -128,4 +129,61 @@ body {
 .resultado .materia {
     font-size: 20px;
     text-align: center;
+}
+
+footer {
+    margin-top: -90px;
+    width: 100%;
+    height: 10vh;
+    background-color: #201658;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer div {
+    text-align: center;
+    font-size: 30px;
+    font-family: sans-serif;
+    color: #fff;
+}
+
+footer div a {
+    text-decoration: none;
+    color: #dc143c;
+}
+
+footer div a:hover {
+    opacity: 0.5;
+    cursor: pointer;
+
+}
+
+@media (max-width: 650px) {
+    .area {
+        margin: 20px;
+        width: 500px;
+    }
+    .area h1 {
+        text-align: center;
+        font-size: 30px;
+    }
+    .area-form form label {
+        font-size: 16px;
+    }
+    .buttons {
+        display: flex;
+    }
+    .button {
+        width: 180px;
+        height: 40px;
+        padding: 0;
+        font-size: 22px;
+    }
+    .button-red {
+        width: 180px;
+        height: 40px;
+        padding: 0;
+        font-size: 22px;
+    }
 }

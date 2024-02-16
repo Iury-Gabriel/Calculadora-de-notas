@@ -10,74 +10,74 @@ let situationEl = document.querySelector('.situation');
 let faltandoEl = document.querySelector('.faltando');
 let materia = document.querySelector('.materia')
 
+
+function verificar_inputs() {
+    av1El.addEventListener('keyup', () => {
+        verificar_input(av1El)
+    })
+
+    av2El.addEventListener('keyup', () => {
+        verificar_input(av2El)
+    })
+
+    av3El.addEventListener('keyup', () => {
+        verificar_input(av3El)
+    })
+
+    function verificar_input(input) {
+        if(input.value) {
+            let av = parseFloat(input.value);
+
+            if(av > 20) input.value = 10;
+            if(av < 0) input.value = 0;
+        }
+    }
+}
+
+verificar_inputs();
+
 botao.addEventListener('click', (e) => {
     e.preventDefault();
-    let av1 = parseFloat(av1El.value);
-    let av2 = parseFloat(av2El.value);
-    let av3 = parseFloat(av3El.value);
+
+
+    let av = [];
+    let semvalor = [];
+    let media = 0;
+
+    faltandoEl.innerHTML = '';
+    disciplinaEl.innerHTML = '';
+    situationEl.innerHTML = '';
+    mediaEl.innerHTML = '';
     
+    verificar(av1El, "av1")
+    verificar(av2El, "av2")
+    verificar(av3El, "av3")
 
-    let soma = av1 + av2 + av3;
-    let media = soma / 3;
-    media = media.toFixed(1)
-
-    let situation;
-
-    if(media >= 6) {
-        situation = 'Aprovado';
-    } else {
-        situation = 'Recuperação';
+    function verificar(input, avaliacao) {
+        if(input.value) av.push(parseFloat(input.value))
+        else semvalor.push(avaliacao)
     }
 
-    let faltando;
+    if(disciplinaEl.value) materia.innerHTML = `Disciplina: ${disciplinaEl.value}`
 
-    if (av1 === 0 && av2 === 0 && av3 === 0) {
-        resultado.innerHTML = "Você não tem notas para calcular";
-    }
+    if(!av1El.value && !av2El.value && !av3El.value) mediaEl.innerHTML = "Você não tem notas para calcular"
+    
+    media = av.reduce((total, atual) => total + atual, 0) / 3;
+    let soma = av.reduce((total, atual) => total + atual, 0)
 
-    if (av1 === 0 && av2 !== 0 && av3 !== 0) {
-        faltando = 18 - (av2 + av3);
-        if(situation === 'Aprovado') {
-            materia.innerHTML = `Disciplina: ${disciplinaEl.value}`;
-            mediaEl.innerHTML = `Sua media é: ${media}`;
-            situationEl.innerHTML = `Sua situação é: ${situation}`
+    if(media) {
+        mediaEl.innerHTML = `A sua media é: ${media.toFixed(1)}`
+        if(media >= 6) {
+            situationEl.innerHTML = "Situação: Aprovado";
         } else {
-            materia.innerHTML = `Disciplina: ${disciplinaEl.value}`;
-            mediaEl.innerHTML = `Sua media é: ${media}`;
-            situationEl.innerHTML = `Sua situação é: ${situation}`
-            faltandoEl.innerHTML = `Você precisar tirar ${faltando} na av1 para passar`
+            situationEl.innerHTML = "Situação: Recuperação";
+
+            if(semvalor.length === 1) {
+                faltandoEl.innerHTML = `Você precisa de ${18 - soma} pontos na ${semvalor} para passar`;
+            } else if (semvalor.length === 2) {
+                faltandoEl.innerHTML = `Você precisa de no minimo ${(18 - soma) / 2} pontos nas ${semvalor} para passar`;
+            }
         }
-        
-    } else if (av2 === 0 && av1 !== 0 && av3 !== 0) {
-        faltando = 18 - (av1 + av3);
-        if(situation === 'Aprovado') {
-            materia.innerHTML = `Disciplina: ${disciplinaEl.value}`;
-            mediaEl.innerHTML = `Sua media é: ${media}`;
-            situationEl.innerHTML = `Sua situação é: ${situation}`
-        } else {
-            materia.innerHTML = `Disciplina: ${disciplinaEl.value}`;
-            mediaEl.innerHTML = `Sua media é: ${media}`;
-            situationEl.innerHTML = `Sua situação é: ${situation}`
-            faltandoEl.innerHTML = `Você precisar tirar ${faltando} na av2 para passar`
-        }
-    } else if (av3 === 0 && av2 !== 0 && av1 !== 0) {
-        faltando = 18 - (av1 + av2);
-        if(situation === 'Aprovado') {
-            materia.innerHTML = `Disciplina: ${disciplinaEl.value}`;
-            mediaEl.innerHTML = `Sua media é: ${media}`;
-            situationEl.innerHTML = `Sua situação é: ${situation}`
-        } else {
-            materia.innerHTML = `Disciplina: ${disciplinaEl.value}`;
-            mediaEl.innerHTML = `Sua media é: ${media}`;
-            situationEl.innerHTML = `Sua situação é: ${situation}`
-            faltandoEl.innerHTML = `Você precisar tirar ${faltando} na av3 para passar`
-        }
-    } else if(av1 !== 0 && av2 !== 0 && av3 !== 0) {
-        materia.innerHTML = `Disciplina: ${disciplinaEl.value}`;
-        mediaEl.innerHTML = `Sua media é: ${media}`;
-        situationEl.innerHTML = `Sua situação é: ${situation}`
-    } else {
-        mediaEl.innerHTML = 'Você precisa ter pelo menos 2 notas para calcular';
     }
 });
 
